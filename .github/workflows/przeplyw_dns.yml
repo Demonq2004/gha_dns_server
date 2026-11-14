@@ -38,7 +38,7 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          
+
   deploy-and-test:
     needs: [utworzenie-oraz-wyslanie_obrazu]
     runs-on: dns_server
@@ -69,4 +69,4 @@ jobs:
 
       - name: Test 2 — named-checkzone
         run: |
-          docker run --rm --pull always $IMAGE_NAME /bin/bash -c "named-checkzone adminakademia.lan /etc/bind/db.adminakademia.lan"
+          docker run --rm --pull always $IMAGE_NAME /bin/bash -c "named-checkzone grzegorzek.lan /etc/bind/db.grzegorzek.lan"
